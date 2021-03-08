@@ -51,3 +51,21 @@ export const searchAll = (query) => {
 export const getTrending = () => {
     return axiosInstance.get('/movies/trending');
 }
+
+export const likeMovie = (id) => {
+    return axiosInstance.post('/profile/add-movie', {
+        likedMovieId: id
+    });
+}
+
+export const addToWatched = (id) => {
+    return axiosInstance.post('/profile/add-movie', {
+        watchedMovieId: id
+    });
+}
+
+export const addToWatchlist = (id) => {
+    return axiosInstance.post('/profile/add-movie', {
+        watchlistMovieId: id
+    });
+}

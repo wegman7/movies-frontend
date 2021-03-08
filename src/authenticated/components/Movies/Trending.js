@@ -11,7 +11,7 @@ import Link from '@material-ui/core/Link';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { tmdbUrl } from '../../../utils/axios';
-import { getTrending } from '../../../utils/apiCalls';
+import { getTrending, likeMovie, addToWatched, addToWatchlist } from '../../../utils/apiCalls';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -94,7 +94,13 @@ const Trending = () => {
   };
 
   const handleAddToWatchlist = () => {
-    console.log('add to watchlist ', selectedMovie.id);
+    addToWatchlist(selectedMovie.id)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
     setAnchorEl(null);
   }
 
@@ -103,12 +109,24 @@ const Trending = () => {
   // and add them straight to their own list of liked movies, etc.
 
   const handleAddToWatched = () => {
-    console.log('add to watched ', selectedMovie.id);
+    addToWatched(selectedMovie.id)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
     setAnchorEl(null);
   }
 
   const handleLike = () => {
-    console.log('add to liked ', selectedMovie.id);
+    likeMovie(selectedMovie.id)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => {
+        console.log(error);
+      });
     setAnchorEl(null);
   }
 

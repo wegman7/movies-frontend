@@ -13,6 +13,7 @@ import createNotification from './utils/alerts';
 import NavbarPublic from './unauthenticated/components/Navbar';
 import NavbarPrivate from './authenticated/components/Navbar';
 import MoviesPrivate from './authenticated/components/Movies/index';
+import ProfilePrivate from './authenticated/components/profile/index';
 
 import './App.css';
 import 'react-notifications/lib/notifications.css';
@@ -40,6 +41,7 @@ const PrivateRoutes = (props) => {
 			<Route path='/' render={(routeProps) => <NavbarPrivate {...props} {...routeProps} />} />
 			<Route exact path='/home/' render={(routeProps) => <HomeContainerPrivate {...props} {...routeProps} />} />
 			<Route exact path='/movies/' render={(routeProps) => <MoviesPrivate user={props.user} {...routeProps} />} />
+			<Route exact path='/profile/:profileId' render={(routeProps) => <ProfilePrivate {...routeProps} />} />
 		</>
 	);
 }
